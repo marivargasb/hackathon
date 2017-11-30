@@ -8,5 +8,13 @@ class Music_model extends CI_Model {
       return $r;
     }    
 
+    function getAll()
+    {
+      $query = $this->db->get('musico');
+      
+          return $query->result_object();
+    }    
+
+
 
 }

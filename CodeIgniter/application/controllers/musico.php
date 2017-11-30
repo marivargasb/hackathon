@@ -3,10 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Musico extends CI_Controller{
 
-public function __construct(){
-    parent::  __construct();
-    $this->load->helper('url');
-}
+    function __construct(){
+        parent:: __construct();
+        $this->load->helper('mihelper');
+        $this->load->library('session');
+        }
+     
 
     public function register()
     {
@@ -19,42 +21,43 @@ public function __construct(){
     }
 
     public function profile()
-    {
-        $this->load->view('Musico/profile');
+    { 
+
+        $data['title'] = $this->session->flashdata('data_name');
+
+        $this->load->view('Musico/profile', $data);
     }
-
-    public function save()
-    {
-		// get the params
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $nombre = $this->input->post('nombre');
-        $apellido = $this->input->post('apellido');
-        $direccion = $this->input->post('direccion');
-        $instrumento = $this->input->post('instrumento');
-        $foto = $this->input->post('foto');
-
+    
+    public function save(){
+        // get the params
+   
         $music = array(
-            'username' => $username,
-            'password' => $password,
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'direccion' => $direccion,
-            'instrumento' => $instrumento,
-            'foto' => $foto
-           
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'nombre' => $this->input->post('nombre'),
+            'apellido' => $this->input->post('apellido'),
+            'direccion' => $this->input->post('direccion')
         );
-		// call the model to save
-		$r = $this->Music_model->save($music);
-		
-		// redirect
-        if ($r) {
-            // $this->session->set_flashdata('message', 'User saved');
-            redirect('/CodeIgniter/musico/login');
+
+        $target_path = './pictures/';
+        $img1path = $target_path .  $this->input->post('username'). '.png';
+        if(move_uploaded_file($_FILES['foto']['tmp_name'], $img1path))
+        {
+            $img_ch = $_FILES['foto']['name'];
+        }
+
+        // call the model to save
+        $r = $this->Music_model->save($music);
+           // redirect
+           if ($r) {
+            $this->session->set_flashdata('data_name', $music);
+            redirect('/hackathon/CodeIgniter/Musico/profile'); 
         } else {
             // $this->session->set_flashdata('message', 'There was an error saving the user');
-            redirect('/CodeIgniter/musico/register');
+            redirect('/hackathon/CodeIgniter/Musico/register');
         }
+        
+      
     }
 
 
