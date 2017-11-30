@@ -16,6 +16,11 @@ class User extends CI_Controller
      $this->load->view('/user/paso');
     }
 
+    public function user()
+    {
+     $this->load->view('/user/paso');
+    }
+
     public function registro()
     {
      $this->load->view('user/register');

@@ -15,6 +15,17 @@ class Musico extends CI_Controller{
         $this->load->view('Musico/register');
     }
 
+    public function user()
+    
+    {
+   
+        
+      $datas['users'] = $this->session->tempdata('data');
+        
+        $this->load->view('Musico/user', $datas);
+     
+    }
+
     public function login()
     {
         $this->load->view('Musico/login');
@@ -22,10 +33,11 @@ class Musico extends CI_Controller{
 
     public function profile()
     { 
-
+         
         $data['title'] = $this->session->flashdata('data_name');
-
+        $data['musico'] =  $music = $this->Music_model->all();
         $this->load->view('Musico/profile', $data);
+        
     }
     
     public function save(){
@@ -59,6 +71,21 @@ class Musico extends CI_Controller{
         
       
     }
+
+
+    public function users(){
+        $user = $this->input->get('user');
+   // echo $user;
+    $r = $this->Music_model->getusers($user);
+
+  $this->session->set_tempdata('data',  $r[0], 600);        
+    
+ redirect('/hackathon/CodeIgniter/Musico/user');
+ 
+  
+     }
+    
+   
 
 
 

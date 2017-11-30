@@ -258,89 +258,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Main content -->
     <section class="content">
-
-    
-       
-         
-           
-    
        
          
            
              
-      <div class="row">
-        <div class="col-md-3">
-
-          <!-- Profile Image -->
-          <div class="box box-danger">
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>CodeIgniter/plantilla/dist/img/user4-128x128.jpg" alt="User profile picture">
-
-              <h3 class="profile-username text-center">Nina Mcintire</h3>
-
-              <p class="text-muted text-center">Software Engineer</p>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Followers</b> <a class="pull-right">1,322</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Following</b> <a class="pull-right">543</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Friends</b> <a class="pull-right">13,287</a>
-                </li>
-              </ul>
-
-              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- About Me Box -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">About Me</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
-
-              <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
-              </p>
-
-              <hr>
-
-              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-
-              <p class="text-muted">Malibu, California</p>
-
-              <hr>
-
-              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-
-              <p>
-                <span class="label label-danger">UI Design</span>
-                <span class="label label-success">Coding</span>
-                <span class="label label-info">Javascript</span>
-                <span class="label label-warning">PHP</span>
-                <span class="label label-primary">Node.js</span>
-              </p>
-
-              <hr>
-
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
+    
         <!-- /.col -->
         <div class="col-md-9">
+
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
               <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
@@ -354,27 +279,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              
              
              
-             
-             
+           
+
+         
              
               <div class="active tab-pane" id="activity">
-
-        
+              <?php  
+              foreach ($musico as $index=>$music) { ?>
+      
             <!-- user-block -->
             <div class="block">
               <div class="box box-primary   col-sm-10 ">
             <div class="box-body box-profile">
               <div class="col-lg-3">
-              <img class=" img-responsive img-circle" src="<?php echo base_url(); ?>hackathon/CodeIgniter/plantilla/dist/img/user4-128x128.jpg" alt="User profile picture">
-              <h3 class="profile-username text-left">Nina_Mcintire</h3>
+              <img class=" img-responsive img-circle" src="<?php echo base_url(); ?>hackathon/CodeIgniter/pictures/<?php echo $music->username.'.png' ?>" alt="User profile picture">
+              <a href="/hackathon/CodeIgniter/musico/users?user=<?php echo $music->username; ?>" >  <h3 class="profile-username text-left"><?php echo $music->username; ?></h3> </a>
               </div>
               <br>
               <ul class="list-group list-group-unbordered  col-lg-9">
                 <li class="list-group-item">            
-                  <b>Nombre</b> <a class="pull-right">Nina Mcintire</a>
+                  <b>Nombre</b> <a class="pull-right"><?php echo $music->nombre; ?> <?php echo $music->apellido; ?></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Direccion</b> <a class="pull-right">Ciudad quesada</a>
+                  <b>Direccion</b> <a class="pull-right"><?php echo $music->direccion; ?></a>
                 </li>            
               </ul>           
              
@@ -384,26 +311,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
                 
                 <!-- /.post -->
-                <div class="user-info">
-                <div class="box box-primary  col-lg-12">
-            <div class="box-body box-profile">
-              <div class="col-lg-3">
-              <img class=" img-responsive img-circle" src="<?php echo base_url(); ?>hackathon/CodeIgniter/plantilla/dist/img/user6-128x128.jpg" alt="User profile picture">
-              <h3 class="profile-username text-left">Nina_Mcintire</h3>
-              </div>
-              <br>
-              <ul class="list-group list-group-unbordered col-lg-9">
-                <li class="list-group-item">            
-                  <b>Nombre</b> <a class="pull-right">Nina Mcintire</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Direccion</b> <a class="pull-right">Ciudad quesada</a>
-                </li>            
-              </ul>           
-             
-            </div>
-            </div>
-            </div>
+       
+
+            <?php } ?>
             <!-- /.box-body -->
         
               </div>
@@ -486,13 +396,90 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- /.nav-tabs-custom -->
         </div>
         <!-- /.col -->
-      </div>
+  
       <!-- /.row -->
+
+
+      <div class="row">
+        <div class="col-md-3">
+
+          <!-- Profile Image -->
+          <div class="box box-danger">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>CodeIgniter/plantilla/dist/img/user4-128x128.jpg" alt="User profile picture">
+
+              <h3 class="profile-username text-center"><?php echo $music->username; ?></h3>
+
+            
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Direccion</b> <a class="pull-right"><?php echo $music->direccion; ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>nombre</b> <a class="pull-right"><?php echo $music->nombre; ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>apellido</b> <a class="pull-right"><?php echo $music->apellido; ?></a>
+                </li>
+              </ul>
+
+              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">About Me</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+
+              <p class="text-muted">
+                B.S. in Computer Science from the University of Tennessee at Knoxville
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+              <p class="text-muted">Malibu, California</p>
+
+              <hr>
+
+              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+              <p>
+                <span class="label label-danger">UI Design</span>
+                <span class="label label-success">Coding</span>
+                <span class="label label-info">Javascript</span>
+                <span class="label label-warning">PHP</span>
+                <span class="label label-primary">Node.js</span>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        </div>
       
 
     </section>
     <!-- /.content -->
   </div>
+
+
+
   
   
   
