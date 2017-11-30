@@ -8,7 +8,7 @@ class Music_model extends CI_Model {
       return $r;
     }    
 
-    function all()
+    function getAll()
     {
       $query = $this->db->get('musico');
       
@@ -27,6 +27,14 @@ class Music_model extends CI_Model {
             return $query->result('array');
    
     }
+
+    public function login($username, $password){
+      $query = $this->db->get_where('musico',
+      array( 'username' => $username,'password' => $password));
+    
+      return $query->result('array');
+    
+     }
 
 
 }

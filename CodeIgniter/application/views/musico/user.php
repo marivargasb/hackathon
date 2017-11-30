@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- Profile Image -->
           <div class="box box-danger">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>hackathon/CodeIgniter/pictures/<?php echo $music->username.'.png' ?>" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>hackathon/CodeIgniter/pictures/<?php echo $users['username'].'.png' ?>" alt="User profile picture">
 
               <h3 class="profile-username text-center"> <?php echo $users['username'] ?> </h3>
 
