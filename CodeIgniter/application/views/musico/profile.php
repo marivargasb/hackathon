@@ -52,15 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
-                    <div class="user-panel">
-                        <div class="pull-left image">
-                            <img src="<?php echo base_url(); ?>hackathon/CodeIgniter/pictures/<?php echo $title['username'].'.png' ?>" class="img-circle" alt="User Image">
-                        </div>
-                        <div class="pull-left info">
-                            <p>Alexander Pierce</p>
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                        </div>
-                    </div>
                     <!-- search form -->
                     <form action="#" method="get" class="sidebar-form">
                         <div class="input-group">
@@ -77,79 +68,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="header">MAIN NAVIGATION</li>
 
                         <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-files-o"></i>
-                                <span>Layout Options</span>
-                                <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-                                </span>
-                            </a>
+          <a href="#">
+            <i class="fa fa-home"></i>
+            <span>HOME</span>
+          </a>
+        
+        </li>
 
-                        </li>
-
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-pie-chart"></i>
-                                <span>Charts</span>
-                                <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                            </a>
-
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-laptop"></i>
-                                <span>UI Elements</span>
-                                <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                            </a>
-
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
-                                <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                            </a>
-
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-table"></i> <span>Tables</span>
-                                <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                                <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-                            </ul>
-
-
-
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-share"></i> <span>Multilevel</span>
-                                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-                                    <li class="treeview">
-                                        <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-                                </ul>
-                            </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-sign-out"></i>
+            <span>LOGOUT</span>
+          </a>
+        
+        </li>
 
                     </ul>
                 </section>
@@ -307,71 +239,74 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
 
                                 <div class="tab-pane" id="settings">
-                                    <div class="user-info">
-                                        <div class="box box-primary  col-lg-12">
-                                            <h1 class="text-center">Intrumentos </h1>
-                                            <form class="form-horizontal">
+                                <div class="user-info">
+                                <div class="box box-primary  col-lg-12">
+                                     <h1 class="text-center">
+                           GENEROS
+                        </h1>
+                                  <form action="/hackathon/CodeIgniter/musico/savegenero?id=2" method="post" class="form-horizontal">
+                                  
+                                  <div class="form-group  ">
+                              
+                                              <div class="col-sm-12 ">
+                                              <select class="form-control" name="id_genero" id="categoria">
 
-                                                <div class="form-group">
-
-                                                    <div class="col-sm-12 ">
-                                                        <select class="form-control" id="categoria">
-                              <option>Hotel</option>
-                              <option>Restaurante</option>
-                              <option>Salud</option>
-                              <option>Aire Libre</option>
-                              <option>Estetica</option>
-                            </select>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                        <button type="submit" class="btn btn-danger">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                              <?php foreach ($generos as $index=>$genero) { ?>
+                                                <option value="<?php echo $genero->id_genero; ?>"><?php echo $genero->nombre; ?></option>
+                                                <?php }?>
+                                
+                                              </select>
+                                            </div>
+                                            </div>
+                                         
+                  
+                                    <div class="form-group">
+                                      <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                      </div>
                                     </div>
-                                    <div class="box box-info col-lg-12">
-                                        <div class="user-info">
-
-                                            <h1 class="text-center">
-                                                Generos
-                                            </h1>
-                                            <form class="form-horizontal">
-
-                                                <div class="form-group">
-
-                                                    <div class="col-sm-12 ">
-                                                        <select class="form-control" id="categoria">
-                              <option>Hotel</option>
-                              <option>Restaurante</option>
-                              <option>Salud</option>
-                              <option>Aire Libre</option>
-                              <option>Estetica</option>
-                            </select>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                        <button type="submit" class="btn btn-danger">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                  </form>
+                                  </div>
+                                  </div>
+                                  <div class="box box-info col-lg-12">
+                                  <div class="user-info">
+                  
+                                  <h1 class="text-center">
+                               INSTRUMENTO
+                                     </h1>
+                                  <form action="/hackathon/CodeIgniter/musico/saveinstrumento?id=2" method="post" class="form-horizontal">
+                                  
+                                  <div class="form-group">
+                                  
+                                              <div class="col-sm-12 ">
+                                              <select class="form-control" name="id_instrumento" id="categoria">
+                  
+                            
+                                              <?php foreach ($instrumentos as $index=>$instrumento) { ?>
+                                                <option value="<?php echo $instrumento->id_instrumento; ?>"><?php echo $instrumento->nombre; ?></option>
+                                                <?php }?>
+                             
+                                              </select>
+                                            </div>
+                                            </div>
+                                          
+                  
+                                    <div class="form-group">
+                                      <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                      </div>
                                     </div>
-
+                                  </form>
+                                  </div>
+                                  </div>
+                  
                                 </div>
                                 <!-- /.tab-pane -->
+                              </div>
+                              <!-- /.tab-content -->
                             </div>
-                            <!-- /.tab-content -->
-                        </div>
-                        <!-- /.nav-tabs-custom -->
-                    </div>
+                            <!-- /.nav-tabs-custom -->
+                          </div>
                     <!-- /.col -->
 
                     <!-- /.row -->
@@ -459,10 +394,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.4.0
-                </div>
-                <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights reserved.
+              
+             
             </footer>
 
             <!-- /.control-sidebar -->
