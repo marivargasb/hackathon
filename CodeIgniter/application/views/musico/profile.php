@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="/hackathon/CodeIgniter/musico/carga" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>M</b>S</span>
       <!-- logo for regular state and mobile devices -->
@@ -331,19 +331,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="user-info">
               <div class="box box-primary  col-lg-12">
                    <h1 class="text-center">
-     Intrumentos
+         GENEROS
       </h1>
-                <form class="form-horizontal">
+                <form action="/hackathon/CodeIgniter/musico/savegenero?id=2" method="post" class="form-horizontal">
                 
-                <div class="form-group">
+                <div class="form-group  ">
             
                             <div class="col-sm-12 ">
-                            <select class="form-control" id="categoria">
-                              <option>Hotel</option>
-                              <option>Restaurante</option>
-                              <option>Salud</option>
-                              <option>Aire Libre</option>
-                              <option>Estetica</option>
+                            <select class="form-control" name="id_genero" id="categoria">
+
+                
+                            <option value="1">claro</option>
+                              <option value="1">claro</option>
+                         
                             </select>
                           </div>
                           </div>
@@ -361,19 +361,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="user-info">
 
                 <h1 class="text-center">
-             Generos
+             INSTRUMENTO
                    </h1>
-                <form class="form-horizontal">
+                <form action="/hackathon/CodeIgniter/musico/saveinstrumento?id=2" method="post" class="form-horizontal">
                 
                 <div class="form-group">
                 
                             <div class="col-sm-12 ">
-                            <select class="form-control" id="categoria">
-                              <option>Hotel</option>
-                              <option>Restaurante</option>
-                              <option>Salud</option>
-                              <option>Aire Libre</option>
-                              <option>Estetica</option>
+                            <select class="form-control" name="id_instrumento" id="categoria">
+
+          
+                              <option value="1">claro</option>
+                              <option value="1">claro</option>
+           
                             </select>
                           </div>
                           </div>
