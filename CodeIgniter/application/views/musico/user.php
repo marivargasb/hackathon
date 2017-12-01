@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="row">
         <div class="col-md-9">
  
-       
+        <?php print_r ($ins); ?>
           <!-- Profile Image -->
           <div class="box box-danger">
             <div class="box-body box-profile">
@@ -233,21 +233,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
              
               
-                         
+              <?php  
+              foreach ($ins as $index=>$music) { ?>
+      
                             <hr>
               
-                            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
-              
-                         
-                            <hr>
-                            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+                            <strong><i class="fa fa-book margin-r-5"></i> <?php echo $music->nombre; ?></strong>
               
                          
                             <hr>
-                            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
-              
-                         
-                            <hr>
+                            
+            
+                            <?php } ?>
 
             </div>
             <!-- /.box-body -->
